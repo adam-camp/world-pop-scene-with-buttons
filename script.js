@@ -145,7 +145,7 @@
       view: view,
       layerInfos: [{
         layer: featureLayer,
-        title: "world pop"
+        title: "World Population"
       }]
     })
     
