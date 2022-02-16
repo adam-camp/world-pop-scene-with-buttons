@@ -3,8 +3,9 @@ require([
       "esri/views/SceneView",
       "esri/Camera",
       "esri/widgets/Home",
+      "esri/widgets/Search",
       "dojo/domReady!"
-    ], function(WebScene, SceneView, Camera, Home) {
+    ], function(WebScene, SceneView, Camera, Home, Search) {
 
     
       /*var map = new Map({
@@ -127,6 +128,14 @@ require([
         target:camera
       });
     });
+	  
+   var searchWidget = new Search({
+        view: view
+      });
 
+      // Add the search widget to the top right corner of the view
+      view.ui.add(searchWidget, {
+        position: "top-right"
+      });
 
     });
