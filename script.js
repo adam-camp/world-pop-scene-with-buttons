@@ -1,11 +1,12 @@
-require([
+ require([
       "esri/WebScene",
       "esri/views/SceneView",
       "esri/Camera",
       "esri/widgets/Home",
       "esri/widgets/Search",
+      "esri/widgets/Legend",
       "dojo/domReady!"
-    ], function(WebScene, SceneView, Camera, Home, Search) {
+    ], function(WebScene, SceneView, Camera, Home, Search, Legend) {
 
     
       /*var map = new Map({
@@ -137,5 +138,18 @@ require([
       view.ui.add(searchWidget, {
         position: "top-right"
       });
+  view.when(function(){
+    
+    var featureLayer = scene.layers.getItemAt(0); 
+    var legend = new Legend({
+      view: view,
+      layerInfos: [{
+        layer: featureLayer,
+        title: "world pop"
+      }]
+    })
+    
+    view.ui.add(legend, "bottom-left");
+  }); 
 
     });
